@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ajout de catégorie</h1>
+
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    {{ form_row(form.nom) }}
+                    <input type="submit" value="Enregistrer" class="btn btn-outline-primary" />
+                </div>
+            </div>
+        </div>
+    {{ form_end(form) }}
+
+    {# <ul>
+        <li>
+            <a href="{{ path('categorie_index') }}">Back to the list</a>
+        </li>
+    </ul> #}
+{% endblock %}

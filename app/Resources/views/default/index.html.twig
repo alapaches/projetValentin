@@ -1,5 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-            
+    <div class="row">
+        {% for article in produits %}
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
+                        <p class="card-text">{{article.description}}</p>
+                        <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
+                        <p>Catégorie : {{article.categorie.getNom}}</p>
+                        <button class="btn btn-primary">
+                            <i class="fa fa-shopping-cart"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

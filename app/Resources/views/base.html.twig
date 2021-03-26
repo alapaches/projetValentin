@@ -15,8 +15,20 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
+              <div class="navbar-nav mr-auto">
                 <a class="nav-link active" href="{{ path('homepage') }}">Accueil</a>
+              </div>
+              <div class="navbar-nav">
+                {% if app.user is null %}
+                  <a class="nav-link" href="{{ path('login') }}">Connexion</a>
+				{% else %}
+					<span class="span-nav">
+						<i class="fa fa-user"></i>&nbsp;&nbsp;{{app.user.username|capitalize}}
+					</span>
+					<span class="span-nav">
+						&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Panier: <span class="panier-longueur">0</span>
+					</span>
+                {% endif %}
               </div>
             </div>
           </nav>

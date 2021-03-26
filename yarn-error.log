@@ -1,30 +1,30 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add bootstra^p --dev
+  C:\Program Files\nodejs\node.exe C:\Users\julie\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add font-awesome 4.7.*
 
 PATH: 
-  C:\Users\julie\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\julie\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Program Files\AdoptOpenJDK\jdk-11.0.5.10-hotspot\bin;C:\Program Files\AdoptOpenJDK\jdk-8.0.232.09-hotspot\bin;C:\Program Files (x86)\AdoptOpenJDK\jdk-8.0.232.09-hotspot\bin;C:\Program Files\AdoptOpenJDK\jre-8.0.232.09-hotspot\bin;C:\Program Files\AdoptOpenJDK\jre-11.0.5.10-hotspot\bin;C:\Program Files (x86)\AdoptOpenJDK\jre-8.0.232.09-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Microsoft VS Code\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\wamp64\bin\php\php7.4.0;C:\composer;C:\Program Files\dotnet;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs;C:\Program Files\Symfony;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\ffmpeg\bin;C:\Program Files (x86)\dotnet;C:\Users\julie\AppData\Local\Microsoft\WindowsApps;C:\Users\julie\AppData\Roaming\Composer\vendor\bin;C:\Users\julie\AppData\Local\Yarn\bin;C:\Users\julie\AppData\Roaming\npm;C:\Users\julie\.dotnet\tools;C:\ffmpeg\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Users\julie\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\julie\bin;C:\Program Files\ibm\gsk8\lib64;C:\Program Files\ibm\gsk8\bin;C:\wamp64\bin\php\php7.4.9;C:\program files (x86)\intel\icls client;C:\program files\intel\icls client;C:\program files\adoptopenjdk\jdk-11.0.9.11-hotspot\bin;C:\program files\amazon corretto\jdk11.0.9_12\bin;C:\program files\amazon corretto\jdk1.8.0_275\bin;C:\program files (x86)\amazon corretto\jdk1.8.0_275\bin;C:\program files\adoptopenjdk\jdk-8.0.275.1-hotspot\bin;C:\program files (x86)\adoptopenjdk\jdk-8.0.275.01-hotspot\bin;C:\program files\adoptopenjdk\jre-8.0.275.1-hotspot\bin;C:\program files\adoptopenjdk\jre-11.0.9.11-hotspot\bin;C:\program files (x86)\adoptopenjdk\jre-8.0.275.01-hotspot\bin;C:\windows\system32;C:\windows;C:\windows\system32\wbem;C:\windows\system32\windowspowershell\v1.0;C:\windows\system32\openssh;C:\program files\microsoft vs code\bin;C:\program files\intel\wifi\bin;C:\program files\common files\intel\wirelesscommon;C:\program files (x86)\intel\intel(r) management engine components\dal;C:\program files\intel\intel(r) management engine components\dal;C:\program files (x86)\intel\intel(r) management engine components\ipt;C:\program files\intel\intel(r) management engine components\ipt;C:\program files\nvidia corporation\nvidia nvdlisr;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Symfony;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\julie\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Users\julie\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
-  1.22.4
+  1.22.10
 
 Node version: 
-  12.18.0
+  14.15.4
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/bootstra%5Ep: Not found
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66096:18)
-      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
+  Error: https://registry.yarnpkg.com/4.7.*: Not found
+      at Request.params.callback [as _callback] (C:\Users\julie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66988:18)
+      at Request.self.callback (C:\Users\julie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
       at Request.emit (events.js:315:20)
-      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141720:10)
+      at Request.<anonymous> (C:\Users\julie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141634:10)
       at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141642:12)
+      at IncomingMessage.<anonymous> (C:\Users\julie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141556:12)
       at Object.onceWrapper (events.js:421:28)
       at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (_stream_readable.js:1221:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+      at endReadableNT (internal/streams/readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {

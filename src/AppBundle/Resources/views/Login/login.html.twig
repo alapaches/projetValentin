@@ -5,20 +5,23 @@
 
     {% if errors %}
         <div class="alert alert-danger">
-            {{ errors.messageKey}}
+            Identifiants Incorrects
         </div>
     {% endif %}
     <form action="{{path('login') }}" method="POST">
-        <div class="form-group">
-            <label for="username">Login</label>
-            <input type="text" class="form-control" name="_username" id="username" value="{{ username}}">
-        </div>
-        <div class="form-group">
-            <label for="password">Mot de passe</label>
-            <input type="password" class="form-control" name="_password" id="password">
-        </div>
-        <div class="form-group">
-            <button class="btn btn-outline-success pull-right">Connexion</button>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="username">Login</label>
+                <input type="text" class="form-control" name="_username" id="username" value="{{ username}}">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control" name="_password" id="password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-success pull-right">Connexion</button>
+            </div>
         </div>
     </form>
 

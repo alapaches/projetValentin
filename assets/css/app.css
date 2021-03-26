@@ -2,3 +2,16 @@
 body {
     background-color: lightgray;
 }
+
+.span-nav {
+    color: #ffff;
+}
+
+.panier-longueur {
+    color: orange;
+    font-weight: bold;
+}
+
+.card {
+    margin-top: 25px;
+}

@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Troc Ma zone - Votre Panier{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    Votre panier
+                    <h6 class="card-subtitle mb-2 text-muted pull-right">Prix</h6>
+                </div>
+                <div class="card-body card-body-panier">
+                    {% for produit in produits %}
+                        <h5 class="pull-right"><strong>{{produit.article.prix}} €</strong></h5>
+                        <div class="row mt-3 mb-4">
+                            <div class="col-md-2">
+                                <img class="img-fluid img-panier" src="{{ asset('uploads/img/' ~ produit.article.image) }} " alt="{{produit.article.nom}}">
+                            </div>
+                            <div class="col-md-10">
+                                <h3 class="mt-4 mt-md-0 text-primary">{{produit.article.nom}}</h3>
+                                {{produit.article.description}}
+                                <h5>Quantité : {{produit.quantite}}</h5>
+                                <a class="btn btn-outline-danger" href="{{ path('panier_delete', {'id': produit.article.id}) }}">
+                                    <i class="fa fa-trash"> Supprimer</i>
+                                </a>
+                            </div>
+                        </div>
+                        <hr />
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Total de votre panier
+                </div>
+                <div class="card-body card-body-panier">
+                    <h5>{{totalPanier}} €</h5>
+                    <div class="form-group">
+                        <button class="btn btn-warning">
+                            <i class="fa fa-shopping-cart"> Commander</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

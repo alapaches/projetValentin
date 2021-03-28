@@ -5,6 +5,7 @@ body {
 
 .span-nav {
     color: #ffff;
+    text-decoration: none;
 }
 
 .panier-longueur {
@@ -14,4 +15,12 @@ body {
 
 .card {
     margin-top: 25px;
+}
+
+.img-panier {
+    width: 300px;
+}
+
+.card-body-panier {
+    padding-top: 0;
 }

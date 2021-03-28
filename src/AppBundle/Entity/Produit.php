@@ -55,12 +55,6 @@ class Produit
      */
     private $categorie;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Panier", inversedBy="produits")
-     * @ORM\JoinColumn(name="panier_id", referencedColumnName="id")
-     */
-    private $panier;
-
 
     /**
      * Get id
@@ -190,29 +184,5 @@ class Produit
     public function getCategorie()
     {
         return $this->categorie;
-    }
-
-    /**
-     * Set panier
-     *
-     * @param \AppBundle\Entity\Panier $panier
-     *
-     * @return Produit
-     */
-    public function setPanier(\AppBundle\Entity\Panier $panier = null)
-    {
-        $this->panier = $panier;
-
-        return $this;
-    }
-
-    /**
-     * Get panier
-     *
-     * @return \AppBundle\Entity\Panier
-     */
-    public function getPanier()
-    {
-        return $this->panier;
     }
 }

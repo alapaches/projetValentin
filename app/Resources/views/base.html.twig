@@ -9,29 +9,19 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Troc ma Zone</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav mr-auto">
-                <a class="nav-link active" href="{{ path('homepage') }}">Accueil</a>
-              </div>
-              <div class="navbar-nav">
-                {% if app.user is null %}
-                  <a class="nav-link" href="{{ path('login') }}">Connexion</a>
-				{% else %}
-					<span class="span-nav">
-						<i class="fa fa-user"></i>&nbsp;&nbsp;{{app.user.username|capitalize}}
-					</span>
-					<span class="span-nav">
-						&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Panier: <span class="panier-longueur">0</span>
-					</span>
-                {% endif %}
-              </div>
-            </div>
-          </nav>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="{{ path('homepage') }}">Troc ma Zone</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav ml-auto">
+					<a class="span-nav" href="{{ path('panier_index') }}">
+						&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Panier: <span class="panier-longueur">{{panierLongueur}}</span>
+					</a>
+				</div>
+			</div>
+		</nav>
         <div class="container-fluid">
             {% block body %}
             {% endblock %}

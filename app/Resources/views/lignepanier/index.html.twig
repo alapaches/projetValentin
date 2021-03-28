@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lignepaniers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lignePanier in lignePaniers %}
+            <tr>
+                <td><a href="{{ path('lignepanier_show', { 'id': lignePanier.id }) }}">{{ lignePanier.id }}</a></td>
+                <td>{{ lignePanier.quantite }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lignepanier_show', { 'id': lignePanier.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lignepanier_edit', { 'id': lignePanier.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lignepanier_new') }}">Create a new lignePanier</a>
+        </li>
+    </ul>
+{% endblock %}

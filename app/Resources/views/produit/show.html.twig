@@ -1,44 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Produit</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ produit.nom }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ produit.description }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ produit.prix }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ produit.image }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('produit_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('produit_edit', { 'id': produit.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+<div class="row mt-3 mb-4">
+    <div class="col-md-4">
+        <img src="{{ asset('uploads/img/' ~ produit.image) }}" alt="{{ produit.nom }}" class="img-fluid">
+    </div>
+    <div class="col-md-8">
+        <h1 class="mt-4 mt-md-0">{{ produit.nom }}</h1>
+        <h2>{{ produit.prix }} €</h2>
+        <hr>
+        <b>Description: </b>{{ produit.description }}
+        <div class="form-group">
+            <a href="{{ path('panier_add', {'id': produit.id}) }}" class="btn btn-outline-warning"><i class="fa fa-shopping-cart"></i> Ajouter au panier</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

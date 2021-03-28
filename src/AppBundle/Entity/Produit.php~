@@ -45,7 +45,7 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image", type="string")
      */
     private $image;
 
@@ -54,12 +54,6 @@ class Produit
      * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
      */
     private $categorie;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Panier", inversedBy="produits")
-     * @ORM\JoinColumn(name="panier_id", referencedColumnName="id")
-     */
-    private $panier;
 
 
     /**

@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Troc Ma zone - Votre Panier{% endblock %}
+{% block title %}Troc ma zone - Votre Panier{% endblock %}
 
 {% block body %}
     <div class="row">
@@ -20,6 +20,7 @@
                             <div class="col-md-10">
                                 <h3 class="mt-4 mt-md-0 text-primary">{{produit.article.nom}}</h3>
                                 {{produit.article.description}}
+                                <p>Catégorie : {{produit.article.categorie.nom}}</p>
                                 <h5>Quantité : {{produit.quantite}}</h5>
                                 <a class="btn btn-outline-danger" href="{{ path('panier_delete', {'id': produit.article.id}) }}">
                                     <i class="fa fa-trash"> Supprimer</i>

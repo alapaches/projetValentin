@@ -2,21 +2,31 @@
 
 {% block body %}
     <div class="row">
-        {% for article in produits %}
-            <div class="col-md-2">
+        {% if produits | length == 0 %}
+            <div class="col-md-12">
                 <div class="card">
-                    <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
-                        <p class="card-text">{{article.description}}</p>
-                        <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
-                        <p>Catégorie : {{article.categorie.getNom}}</p> 
-                        <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
-                            <i class="fa fa-eye"></i> Détails
-                        </a>
+                        <h1>Aucun article disponible</h1>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        {% else %}
+            {% for article in produits %}
+                <div class="col-md-2">
+                    <div class="card">
+                        <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
+                            <p class="card-text">{{article.description}}</p>
+                            <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
+                            <p>Catégorie : {{article.categorie.getNom}}</p> 
+                            <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
+                                <i class="fa fa-eye"></i> Détails
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}

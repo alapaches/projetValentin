@@ -15,7 +15,11 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav ml-auto">
+				<div class="navbar-nav mr-auto">
+					<a class="nav-link active" href="{{ path('produit_new') }}">Ajouter Article</a>
+					<a class="nav-link active" href="{{ path('categorie_new') }}">Ajouter Catégorie</a>
+				</div>
+				<div class="navbar-nav">
 					<a class="span-nav" href="{{ path('panier_index') }}">
 						&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Panier: <span class="panier-longueur">{{panierLongueur}}</span>
 					</a>

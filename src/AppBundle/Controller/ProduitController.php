@@ -41,6 +41,10 @@ class ProduitController extends Controller
      */
     public function newAction(Request $request, SessionInterface $session)
     {
+        $longueur = count($session->get('panier', []));
+        
+        $this->get('twig')->addGlobal('panierLongueur', $longueur);
+        
         $produit = new Produit();
         $form = $this->createForm('AppBundle\Form\ProduitType', $produit);
         $form->handleRequest($request);

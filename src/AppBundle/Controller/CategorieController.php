@@ -3,10 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Categorie;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * Categorie controller.
@@ -38,8 +39,12 @@ class CategorieController extends Controller
      * @Route("/new", name="categorie_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, SessionInterface $session)
     {
+        $longueur = count($session->get('panier', []));
+        
+        $this->get('twig')->addGlobal('panierLongueur', $longueur);
+        
         $categorie = new Categorie();
         $form = $this->createForm('AppBundle\Form\CategorieType', $categorie);
         $form->handleRequest($request);
@@ -49,7 +54,7 @@ class CategorieController extends Controller
             $em->persist($categorie);
             $em->flush();
 
-            return $this->redirectToRoute('categorie_show', array('id' => $categorie->getId()));
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('categorie/new.html.twig', array(

@@ -9,7 +9,7 @@ body {
 }
 
 .panier-longueur {
-    color: orange;
+    color: black;
     font-weight: bold;
 }
 
@@ -23,4 +23,8 @@ body {
 
 .card-body-panier {
     padding-top: 0;
+}
+
+.panier-nav-bar {
+    margin-left:10px;
 }

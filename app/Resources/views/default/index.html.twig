@@ -12,7 +12,7 @@
             </div>
         {% else %}
             {% for article in produits %}
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card">
                         <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -20,6 +20,9 @@
                             <p class="card-text">{{article.description}}</p>
                             <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
                             <p>Catégorie : {{article.categorie.getNom}}</p> 
+                            <a class="btn btn-outline-dark" href="{{ path('panier_add', { 'id': article.id }) }}">
+                                <i class="fa fa-cart-plus"></i> Ajouter au panier
+                            </a>
                             <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
                                 <i class="fa fa-eye"></i> Détails
                             </a>

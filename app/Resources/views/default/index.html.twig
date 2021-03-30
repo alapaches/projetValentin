@@ -1,32 +1,54 @@
 {% extends 'base.html.twig' %}
 {% block title %}Troc ma zone - Accueil{% endblock %}
 {% block body %}
-    <div class="row">
         {% if produits | length == 0 %}
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h1>Aucun article disponible</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1>Aucun article disponible</h1>
+                        </div>
                     </div>
                 </div>
             </div>
         {% else %}
-            {% for article in produits %}
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
-                            <p class="card-text">{{article.description}}</p>
-                            <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
-                            <p>Catégorie : {{article.categorie.getNom}}</p> 
-                            <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
-                                <i class="fa fa-eye"></i> Détails
-                            </a>
+            <div class="row">
+                <div class="form-group">
+                    <label for="select-categorie">Catégorie</label>
+                    <select name="categories" class="form-control" id="select-categorie">
+                        <option value="all">Toutes</option>
+                        {% for categorie in categories %}
+                            <option value="{{categorie.id}}">{{categorie.nom}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                {% for article in produits %}
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
+                                <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
+                                <p>Catégorie : {{article.categorie.getNom}}</p> 
+                                <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
+                                    <i class="fa fa-eye"></i> Détails
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         {% endif %}
-    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        var select = document.querySelector("#select-categorie");
+        select.addEventListener("change", sortArticles);
+
+        function sortArticles() {
+            console.log("TOTO");
+        }
+    </script>
 {% endblock %}

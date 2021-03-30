@@ -21,10 +21,11 @@ class ProduitType extends AbstractType
             ->add('prix')
             ->add('image', FileType::class, [
                 'label' => 'Image',
-                'required' => true,
+                'required' => false,
+                "data_class" => null,
                 'constraints' => [
                     new File([
-                        'maxSize' => '8192k',
+                        'maxSize' => '8192k'
                         // 'mimeTypes' => [
                         //     'application/pdf',
                         //     'application/x-pdf',

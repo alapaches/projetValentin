@@ -11,7 +11,14 @@
         <hr>
         <b>Description: </b>{{ produit.description }}
         <div class="form-group">
-            <a href="{{ path('panier_add', {'id': produit.id}) }}" class="btn btn-outline-warning"><i class="fa fa-shopping-cart"></i> Ajouter au panier</a>
+            {% if app.user %}
+                <a class="btn btn-outline-secondary" href="{{ path('produit_edit', { 'id': produit.id }) }}">
+                    <i class="fa fa-pencil-square-o"></i> Modifier
+                </a>
+            {% endif %}
+            <a href="{{ path('panier_add', {'id': produit.id}) }}" class="btn btn-outline-warning">
+                <i class="fa fa-shopping-cart"></i> Ajouter au panier
+            </a>
         </div>
     </div>
 </div>

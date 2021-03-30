@@ -112,11 +112,15 @@ class ProduitController extends Controller
         $deleteForm = $this->createDeleteForm($produit);
         $editForm = $this->createForm('AppBundle\Form\ProduitType', $produit);
         $editForm->handleRequest($request);
+        $longueur = count($session->get('panier', []));
+        
+        
+        $this->get('twig')->addGlobal('panierLongueur', $longueur);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('produit_edit', array('id' => $produit->getId()));
+            return $this->redirectToRoute('produit_show', array('id' => $produit->getId()));
         }
 
         return $this->render('produit/edit.html.twig', array(

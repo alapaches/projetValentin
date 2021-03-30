@@ -10,16 +10,16 @@
     </head>
     <body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="{{ path('homepage') }}">SHINZO WO SASAGEYO</a>
+            <a class="navbar-brand" href="{{ path('homepage') }}">DE TOUT</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav mr-auto">
-                {% if app.user %}
-					<a class="nav-link active" href="{{ path('produit_new') }}">Ajouter Article</a>
-					<a class="nav-link active" href="{{ path('categorie_new') }}">Ajouter Catégorie</a>
-                {% endif %}
+                    {% if app.user %}
+					    <a class="nav-link active" href="{{ path('produit_new') }}">Ajouter Article</a>
+					    <a class="nav-link active" href="{{ path('categorie_new') }}">Ajouter Catégorie</a>
+                    {% endif %}
 				</div>
 				<div class="navbar-nav">
                     {# <form class="form-inline ml-auto">
@@ -27,7 +27,7 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
                     </form> #}
 
-                    {% if app.user is not defined %}
+                    {% if app.user is null %}
                         <a class="btn btn-success" href="{{ path('login') }}">Se connecter<a>
                     {# {% else %}
                         <a class="btn btn-success" href="{{ path('logout') }}">Déconnexion<a> #}

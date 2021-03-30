@@ -31,7 +31,10 @@
                             <div class="card-body">
                                 <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
                                 <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
-                                <p>Catégorie : {{article.categorie.getNom}}</p> 
+                                <p>Catégorie : {{article.categorie.getNom}}</p>
+                                <a class="btn btn-outline-dark" href="{{ path('panier_add', { 'id': article.id }) }}">
+                                    <i class="fa fa-cart-plus"></i> Ajouter au panier
+                                </a>
                                 <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
                                     <i class="fa fa-eye"></i> Détails
                                 </a>

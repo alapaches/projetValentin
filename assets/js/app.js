@@ -13,14 +13,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import 'font-awesome/css/font-awesome.min.css';
 
+import 'jquery-ui/themes/base/all.css';
+
+
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
 
 // loads the jquery package from node_modules
 var $ = require('jquery');
+require('jquery-ui/ui/widgets/autocomplete.js');
 
 
 $(function() {
-    
+    $("#search-produit").autocomplete({
+        
+    });
 });

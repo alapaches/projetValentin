@@ -21,8 +21,8 @@ class ProduitType extends AbstractType
             ->add('prix')
             ->add('image', FileType::class, [
                 'label' => 'Image',
-                'required' => false,
-                "data_class" => null,
+                'required' => true,
+                'data_class' => null,
                 'constraints' => [
                     new File([
                         'maxSize' => '8192k'

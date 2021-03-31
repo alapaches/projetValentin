@@ -16,5 +16,9 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/build/
-!/web/uploads
+!/web/uploads/figurines
+!/web/uploads/mangas
+!/web/uploads/posters
+!/web/uploads/vinyles
+/web/uploads/*
 ./composer.lock

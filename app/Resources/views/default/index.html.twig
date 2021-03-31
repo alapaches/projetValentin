@@ -1,57 +1,61 @@
 {% extends 'base.html.twig' %}
 {% block title %}Troc ma zone - Accueil{% endblock %}
 {% block body %}
-        {% if produits | length == 0 %}
-            <div class="row">
-                <div class="col-md-12">
+    <div class="toast" id="myToast" style="position: absolute; top: 50; right: 0;">
+        <div class="toast-header">
+            <strong class="mr-auto"><i class="fa fa-grav"></i> Notification</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            <div>Le produit à été ajouté au panier !</div>
+        </div>
+    </div>
+    {% if produits | length == 0 %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Aucun article disponible</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="form-group">
+                <label for="select-categorie">Catégorie</label>
+                <select name="categories" class="form-control" id="select-categorie">
+                    <option value="all">Toutes</option>
+                    {% for categorie in categories %}
+                        <option value="{{categorie.id}}">{{categorie.nom}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            {% for article in produits %}
+                <div class="col-md-3">
                     <div class="card">
+                        <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h1>Aucun article disponible</h1>
+                            <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
+                            <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
+                            <p>Catégorie : {{article.categorie.getNom}}</p>
+                            <a class="btn btn-outline-dark add-panier" id="{{article.id}}" href="{{ path('panier_add', { 'id': article.id }) }}">
+                                <i class="fa fa-cart-plus"></i> Ajouter au panier
+                            </a>
+                            <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
+                                <i class="fa fa-eye"></i> Détails
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% else %}
-            <div class="row">
-                <div class="form-group">
-                    <label for="select-categorie">Catégorie</label>
-                    <select name="categories" class="form-control" id="select-categorie">
-                        <option value="all">Toutes</option>
-                        {% for categorie in categories %}
-                            <option value="{{categorie.id}}">{{categorie.nom}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                {% for article in produits %}
-                    <div class="col-md-3">
-                        <div class="card">
-                            <img src="{{ asset('uploads/img/' ~ article.image) }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>{{article.nom}}</strong></h5>
-                                <p class="card-title"><strong>{{article.prix}}</strong>&nbsp;€</p>
-                                <p>Catégorie : {{article.categorie.getNom}}</p>
-                                <a class="btn btn-outline-dark" href="{{ path('panier_add', { 'id': article.id }) }}">
-                                    <i class="fa fa-cart-plus"></i> Ajouter au panier
-                                </a>
-                                <a class="btn btn-primary" href="{{ path('produit_show', { 'id': article.id }) }}">
-                                    <i class="fa fa-eye"></i> Détails
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}
 {% block javascripts %}
-    <script type="text/javascript">
-        var select = document.querySelector("#select-categorie");
-        select.addEventListener("change", sortArticles);
-
-        function sortArticles() {
-            console.log("TOTO");
-        }
-    </script>
+    {{ parent() }}
 {% endblock %}

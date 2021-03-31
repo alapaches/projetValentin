@@ -29,8 +29,8 @@
 
                     {% if app.user is null %}
                         <a class="btn btn-success" href="{{ path('login') }}">Se connecter<a>
-                    {# {% else %}
-                        <a class="btn btn-success" href="{{ path('logout') }}">Déconnexion<a> #}
+                    {% else %}
+                        <a class="btn btn-danger" href="{{ path('logout') }}">Déconnexion<a>
                     {% endif %}
 
 					<a class="btn btn-warning panier-nav-bar" href="{{ path('panier_index') }}">

@@ -10,6 +10,7 @@
 import '../css/app.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -26,5 +27,41 @@ require('jquery-ui/ui/widgets/autocomplete.js');
 
 
 $(function() {
-    
+    // function onClickBtnAddPanier(evt) {
+    //     evt.preventDefault();
+
+    //     var urlAdd = this.href;
+    //     var id = this.id;
+    //     $.ajax({
+    //         url: urlAdd,
+    //         type: 'GET',
+    //         data: id,
+    //         success: function(response) {
+    //             console.log("TOTO");
+    //         }
+    //     })
+    // }
+    $(".add-panier").on("click", function(e) {
+        e.preventDefault();
+        var id = $(this).attr("id");
+        var href = $(this).attr("href");
+        
+        $.ajax({
+            url: href,
+            type: "GET",
+            data: id,
+            success: function(response) {
+                $("#myToast").toast({
+                    delay: 3000
+                });
+                $("#myToast").toast('show');
+            },
+            error: function(error) {
+
+            }
+        })
+    })
+    // document.querySelectorAll('.btn-add-panier').forEach(function(link) {
+    //     link.addEventListener('click', onClickBtnAddPanier);
+    // })
 });

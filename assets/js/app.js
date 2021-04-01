@@ -52,6 +52,25 @@ $(function() {
         })
     })
 
+    $("#save-commande").on("click", function(e) {
+        e.preventDefault();
+        var nom = $("#nom").val();
+        var prenom = $("#prenom").val();
+        var adresse = $("#adresse").val();
+        var email = $("#email").val();
+        var codePostal = $("#code-postal").val();
+        var ville = $("#ville").val();
+        var href = $(this).attr('href');
+        var accueil = $(this).data('accueil');
+
+        if(nom != "" && prenom != "" && adresse != "" && email != "" && codePostal != "" && ville != "") {
+            $(".alert-commande").css("display", "block");
+            setTimeout(function() {
+                window.location.href = href;
+            }, 3000)
+        }
+    })
+
     // $("#select-categorie").on("change", function() {
     //     var categorieToFilter = $("#select-categorie option:selected").text();
     //     var testUrl = $(this).data("href");

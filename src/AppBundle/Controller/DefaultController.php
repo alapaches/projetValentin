@@ -29,6 +29,7 @@ class DefaultController extends Controller
         $categories = $this->getDoctrine()->getManager()->getRepository(Categorie::class)->findAll();
 
         $filter = $request->get("filter");
+        
 
         if($filter === null) {
             $produits = $this->getDoctrine()->getManager()->getRepository(Produit::class)->findAll();    

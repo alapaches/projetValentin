@@ -22,6 +22,10 @@ class PanierService {
         return $panier;
     }
 
+    public function deletePanier() {
+        $this->session->remove("panier");
+    }
+
     public function add($id) {
         $panier = $this->session->get('panier', []);
 

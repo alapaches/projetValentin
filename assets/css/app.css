@@ -32,3 +32,7 @@ body {
 .retour{
     margin-top:5px;
 }
+
+.alert-commande {
+    display: none;
+}

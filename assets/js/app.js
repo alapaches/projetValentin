@@ -52,9 +52,12 @@ $(function() {
             data: id,
             success: function(response) {
                 $("#myToast").toast({
-                    delay: 3000
+                    delay: 2000
                 });
                 $("#myToast").toast('show');
+                setTimeout(() => {
+                  window.location.reload();  
+                }, 2000);
             },
             error: function(error) {
 

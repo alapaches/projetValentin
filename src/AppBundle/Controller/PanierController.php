@@ -47,4 +47,15 @@ class PanierController extends Controller
 
         return $this->redirectToRoute("panier_index");
     }
+
+    /**
+     * @Route("/commander", name="panier_commander")
+     */
+    public function commanderAction(Request $request, PanierService $panierService){
+
+        $longueur = count($panierService->getPanier());        
+        $this->get('twig')->addGlobal('panierLongueur', $longueur);
+
+        $form = $this->createForm('AppBundle\Form\ProduitType');
+    }
 }

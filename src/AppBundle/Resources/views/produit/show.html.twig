@@ -19,7 +19,13 @@
             <a href="{{ path('panier_add', {'id': produit.id}) }}" class="btn btn-outline-warning">
                 <i class="fa fa-shopping-cart"></i> Ajouter au panier
             </a>
-        </div>
+
+            <div class="form-group">
+                <a class="btn btn-success retour" href="{{ path('homepage')}}">
+                    <i class="fa fa-arrow-left"> Retour au menu</i>
+                </a>
+            </div>
+
     </div>
 </div>
 {% endblock %}

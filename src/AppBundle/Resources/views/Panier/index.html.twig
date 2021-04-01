@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-7">
             <div class="card">
                 <div class="card-header">
                     Votre panier
@@ -32,18 +32,30 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
                     Total de votre panier
                 </div>
                 <div class="card-body card-body-panier">
                     <h5>{{totalPanier}} €</h5>
-                    <div class="form-group">
-                        <button class="btn btn-warning">
-                            <i class="fa fa-credit-card-alt"> Commander</i>
-                        </button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button class="btn btn-warning">
+                                    <i class="fa fa-credit-card-alt"> Passer la commande</i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <a class="btn btn-success" href="{{ path('homepage')}}">
+                                    <i class="fa fa-arrow-left"> Retour au menu</i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

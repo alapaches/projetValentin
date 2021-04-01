@@ -28,7 +28,7 @@ class ProduitController extends Controller
 
         $produits = $em->getRepository('AppBundle:Produit')->findAll();
 
-        return $this->render('produit/index.html.twig', array(
+        return $this->render('@App/produit/index.html.twig', array(
             'produits' => $produits,
         ));
     }
@@ -78,7 +78,7 @@ class ProduitController extends Controller
             return $this->redirectToRoute('produit_show', array('id' => $produit->getId()));
         }
 
-        return $this->render('produit/new.html.twig', array(
+        return $this->render('@App/produit/new.html.twig', array(
             'produit' => $produit,
             'form' => $form->createView(),
         ));
@@ -96,7 +96,7 @@ class ProduitController extends Controller
         
         $this->get('twig')->addGlobal('panierLongueur', $longueur);
         // $form = $this->createDeleteForm($produit);
-        return $this->render('produit/show.html.twig', array(
+        return $this->render('@App/produit/show.html.twig', array(
             'produit' => $produit
         ));
     }
@@ -144,7 +144,7 @@ class ProduitController extends Controller
             return $this->redirectToRoute('produit_show', array('id' => $produit->getId()));
         }
 
-        return $this->render('produit/edit.html.twig', array(
+        return $this->render('@App/produit/edit.html.twig', array(
             'produit' => $produit,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

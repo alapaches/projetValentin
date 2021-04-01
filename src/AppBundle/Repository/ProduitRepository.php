@@ -2,6 +2,9 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Produit;
+use AppBundle\Entity\Categorie;
+
 /**
  * ProduitRepository
  *
@@ -10,4 +13,12 @@ namespace AppBundle\Repository;
  */
 class ProduitRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findByCategorie($categorie) {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p FROM AppBundle:Produit p WHERE p.categorie = '.$categorie.''
+            )
+            ->getResult();
+    }
 }

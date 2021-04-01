@@ -15,6 +15,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'font-awesome/css/font-awesome.min.css';
 
 import 'jquery-ui/themes/base/all.css';
+import { get } from 'jquery';
 
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
@@ -27,20 +28,6 @@ require('jquery-ui/ui/widgets/autocomplete.js');
 
 
 $(function() {
-    // function onClickBtnAddPanier(evt) {
-    //     evt.preventDefault();
-
-    //     var urlAdd = this.href;
-    //     var id = this.id;
-    //     $.ajax({
-    //         url: urlAdd,
-    //         type: 'GET',
-    //         data: id,
-    //         success: function(response) {
-    //             console.log("TOTO");
-    //         }
-    //     })
-    // }
     $(".add-panier").on("click", function(e) {
         e.preventDefault();
         var id = $(this).attr("id");
@@ -61,7 +48,20 @@ $(function() {
             }
         })
     })
-    // document.querySelectorAll('.btn-add-panier').forEach(function(link) {
-    //     link.addEventListener('click', onClickBtnAddPanier);
+
+    // $("#select-categorie").on("change", function() {
+    //     var categorieToFilter = $("#select-categorie option:selected").text();
+    //     var testUrl = $(this).data("href");
+        
+    //     $.get({
+    //         url: testUrl,
+    //         data: {"filter": categorieToFilter},
+    //         success: function(response) {
+    //             $(document).load(response);
+    //         }, 
+    //         error: function(error) {
+
+    //         }
+    //     })
     // })
 });

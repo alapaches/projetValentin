@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Produit;
 use AppBundle\Entity\Categorie;
+use AppBundle\Service\Panier\PanierService;
 use AppBundle\Repository\CategorieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,13 +23,22 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(SessionInterface $session)
+    public function indexAction(Request $request, PanierService $panierService)
     {
-        $produits = $this->getDoctrine()->getManager()->getRepository(Produit::class)->findAll();
-
+        
         $categories = $this->getDoctrine()->getManager()->getRepository(Categorie::class)->findAll();
 
-        $longueur = count($session->get('panier', []));
+        $filter = $request->get("filter");
+
+        if($filter === null) {
+            $produits = $this->getDoctrine()->getManager()->getRepository(Produit::class)->findAll();    
+        } else {
+            $catFilter = $this->getDoctrine()->getManager()->getRepository(Categorie::class)->findBy(array("nom" => $filter));
+            $produits = $this->getDoctrine()->getManager()->getRepository(Produit::class)->findByCategorie($catFilter[0]->getId());
+        }
+
+        $panier = $panierService->getPanier();
+        $longueur = count($panier);
         
         
         $this->get('twig')->addGlobal('panierLongueur', $longueur);
